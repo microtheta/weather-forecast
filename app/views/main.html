@@ -1,0 +1,67 @@
+<nav-bar></nav-bar>
+<div class="container">
+  
+  <div class="text-center loader" ng-if="loadingData">
+    <img src="images/loading.gif">
+  </div>
+
+  <div class="date-container" ng-if="weatherData">
+    
+    <div class="col-xs-12 report-header">
+      <h3> Weather forecast - {{weatherData.city.name}}, {{weatherData.city.country}} </h3>
+    </div>
+
+    <div class="col-xs-6 col-md-4" ng-class="{'selected': dt == selectedDate}" ng-repeat="(dt, obj) in weatherData.list" ng-click="selectDate(dt);">
+      
+      <div class="date-box">
+        <div class="text-center font-12"> {{obj[0].dt_txt}} </div>
+        <h3 class="text-center"> 
+          <div> {{(obj[0].main.temp)}} °C </div>
+          <div title="min-max"> <small class="font-12"> {{(obj[0].main.temp_min)}} °C - {{(obj[0].main.temp_max)}} °C </small> </div>
+        </h3>
+        <div class="text-center">
+          <img class="weather-img" ng-src={{getImage(obj[0].weather[0].icon)}}>
+          <div class="font-18 text-capitalize"> {{ obj[0].weather[0].description }} </div>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="text-center date-container" ng-if="dataError">
+    We are unable to fetch data :(
+    <br/> Please visit after sometime!
+  </div>
+  
+  <div class="clearfix"></div>
+
+  <div class="daily-data-container" ng-if="dailyData">
+    <h3> Hourly weather forecast - {{selectedDate}} </h3>
+    <table class="table table-striped">
+      <tr ng-repeat="obj in dailyData">
+        <td class="text-middle" title="Time">
+          {{obj.dt_txt.split(' ')[1]}}
+        </td>
+        <td class="text-middle" title="Temperature">
+          {{(obj.main.temp)}} °C 
+        </td>
+        <td class="text-middle" title="Weather">
+          <img class="weather-img" ng-src={{getImage(obj.weather[0].icon)}}>
+        </td>
+        <td class="text-capitalize text-middle" title="Weather">
+          {{ obj.weather[0].description }}
+        </td>
+        <td class="text-middle" title="Wind-speed">
+          {{ obj.wind.speed }} m/s
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  
+  <div ng-if="weatherData && !dailyData" class="tip"> <small> * Select a date to see hourly weather forecasting. </small> </div>
+  
+</div>

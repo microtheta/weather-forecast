@@ -1,12 +1,25 @@
-# weatherapp
+# Weather forecast 
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+Simple application to display weather forecasting information.
 
-## Build & development
+## Setup development environment 
 
-Run `grunt` for building and `grunt serve` for preview.
+`git clone` - Clone the repository 
 
-## Testing
+`npm install` - To install node dependencies 
 
-Running `grunt test` will run the unit tests with karma.
+`bower install` - To install client dependencies
+
+## Build, development and test
+
+`grunt` to ensure linting, unit test and build the app.
+
+`grunt serve` for local development and preview.
+
+`grunt test` will run the unit tests with karma.
+
+###  TODO
+
+ - Allow user to select city
+ - Update the directory structure to modularize the application
+ - Improve UI/UX

@@ -22,4 +22,5 @@ Simple application to display weather forecasting information.
 
  - Allow user to select city
  - Update the directory structure to modularize the application
+ - Secure the api key by moving the service call to server side
  - Improve UI/UX

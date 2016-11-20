@@ -21,6 +21,7 @@ Simple application to display weather forecasting information.
 ###  TODO
 
  - Allow user to select city
+ - Detect user location using geoloction and load weather of that location 
  - Update the directory structure to modularize the application
  - Secure the api key by moving the service call to server side
  - Improve UI/UX
